@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">main_app</string>
+
+    <string name="label_open_flutter_module">open flutter module</string>
 </resources>

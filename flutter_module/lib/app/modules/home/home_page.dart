@@ -35,7 +35,7 @@ class HomePage extends GetView<HomeController> {
                                   Icons.camera_alt,
                                   color: Colors.white,
                                 ),
-                                callback: () {},
+                                callback: () => Get.toNamed(Routes.cameraPage),
                               ),
                               SizedBox(width: 12),
                               GridButton(

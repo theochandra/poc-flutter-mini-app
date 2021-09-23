@@ -1,5 +1,6 @@
 import 'package:flutter_module/app/data/database/database.dart';
 import 'package:flutter_module/app/data/model/post.dart';
+import 'package:sqflite/sql.dart';
 
 class PostDao {
   final dbProvider = DatabaseProvider.dbProvider;
@@ -7,7 +8,11 @@ class PostDao {
   Future<int> insertPost(Post post) async {
     final db = await dbProvider.database;
     if (db == null) return 0;
-    var result = db.insert(postTable, post.toDatabaseJson());
+    var result = db.insert(
+      postTable,
+      post.toDatabaseJson(),
+      conflictAlgorithm: ConflictAlgorithm.replace,
+    );
     return result;
   }
 

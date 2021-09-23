@@ -1,3 +1,4 @@
+import 'package:flutter_module/app/modules/camera/camera_page.dart';
 import 'package:flutter_module/app/modules/home/home_binding.dart';
 import 'package:flutter_module/app/modules/home/home_page.dart';
 import 'package:flutter_module/app/modules/show_post/show_post_binding.dart';
@@ -18,5 +19,9 @@ class AppPages {
       page: () => ShowPostPage(),
       binding: ShowPostBinding(),
     ),
+    GetPage(
+      name: Routes.cameraPage,
+      page: () => CameraPage(),
+    )
   ];
 }

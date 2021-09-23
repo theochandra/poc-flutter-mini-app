@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_module/app/global_widgets/grid_button.dart';
+import 'package:flutter_module/app/global_widgets/item_view.dart';
 import 'package:flutter_module/app/global_widgets/loading_widget.dart';
 import 'package:flutter_module/app/modules/home/home_controller.dart';
+import 'package:flutter_module/app/routes/app_pages.dart';
 import 'package:get/get.dart';
 
 class HomePage extends GetView<HomeController> {
@@ -43,6 +45,14 @@ class HomePage extends GetView<HomeController> {
                                 ),
                                 callback: () {},
                               ),
+                              SizedBox(width: 12),
+                              GridButton(
+                                icon: Icon(
+                                  Icons.book,
+                                  color: Colors.white,
+                                ),
+                                callback: () => Get.toNamed(Routes.showPost),
+                              ),
                             ],
                           ),
                         ),
@@ -52,61 +62,15 @@ class HomePage extends GetView<HomeController> {
                         ),
                         ..._.postList.map(
                           (model) => ItemView(
-                              title: model.title,
-                              subtitle: model.body,
-                              onTap: () {}),
-                        )
+                            title: model.title,
+                            subtitle: model.body,
+                            onTap: () {},
+                          ),
+                        ),
                       ],
                     ),
                   );
           },
-        ),
-      ),
-    );
-  }
-}
-
-class ItemView extends StatelessWidget {
-  final String title;
-  final String subtitle;
-  final VoidCallback onTap;
-
-  const ItemView({
-    Key? key,
-    required this.title,
-    required this.subtitle,
-    required this.onTap,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      width: MediaQuery.of(context).size.width,
-      margin: const EdgeInsets.symmetric(horizontal: 8.0),
-      child: Card(
-        elevation: 3,
-        child: Padding(
-          padding: const EdgeInsets.all(12.0),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                title,
-                style: TextStyle(
-                  fontSize: 16,
-                  fontWeight: FontWeight.w400,
-                ),
-              ),
-              SizedBox(height: 8),
-              Text(
-                subtitle,
-                style: TextStyle(
-                  fontSize: 14,
-                  fontWeight: FontWeight.w300,
-                ),
-              ),
-            ],
-          ),
         ),
       ),
     );

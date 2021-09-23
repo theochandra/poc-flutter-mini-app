@@ -22,7 +22,7 @@ class HomeController extends GetxController {
     try {
       final data = await repository.getAll();
       postList = data;
-      data.map((model) {
+      data.forEach((model) {
         insertPost(model);
       });
     } on DioError catch (_) {}

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_module/app/global_widgets/grid_button.dart';
 import 'package:flutter_module/app/global_widgets/loading_widget.dart';
 import 'package:flutter_module/app/modules/home/home_controller.dart';
 import 'package:get/get.dart';
@@ -10,7 +11,7 @@ class HomePage extends GetView<HomeController> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Home Page'),
+        title: const Text('Home Page'),
       ),
       body: Container(
         child: GetX<HomeController>(
@@ -27,9 +28,20 @@ class HomePage extends GetView<HomeController> {
                           padding: const EdgeInsets.fromLTRB(12, 8, 12, 0),
                           child: Row(
                             children: [
-                              ElevatedButton(
-                                onPressed: () {},
-                                child: Text('button'),
+                              GridButton(
+                                icon: Icon(
+                                  Icons.camera_alt,
+                                  color: Colors.white,
+                                ),
+                                callback: () {},
+                              ),
+                              SizedBox(width: 12),
+                              GridButton(
+                                icon: Icon(
+                                  Icons.map,
+                                  color: Colors.white,
+                                ),
+                                callback: () {},
                               ),
                             ],
                           ),

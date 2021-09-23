@@ -1,5 +1,5 @@
 import 'package:dio/dio.dart';
-import 'package:flutter_module/app/data/model/my_model.dart';
+import 'package:flutter_module/app/data/model/post_model.dart';
 import 'package:flutter_module/app/data/provider/http_factory.dart';
 import 'package:retrofit/retrofit.dart';
 
@@ -21,5 +21,5 @@ abstract class ApiClient {
   }
 
   @GET('/posts')
-  Future<List<MyModel>> getAll();
+  Future<List<PostModel>> getAll();
 }

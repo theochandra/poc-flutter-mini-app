@@ -1,23 +1,23 @@
 import 'package:equatable/equatable.dart';
 import 'package:json_annotation/json_annotation.dart';
 
-part 'my_model.g.dart';
+part 'post_model.g.dart';
 
 @JsonSerializable()
-class MyModel extends Equatable {
+class PostModel extends Equatable {
   final int id;
   final String title;
   final String body;
 
-  const MyModel({
+  const PostModel({
     required this.id,
     required this.title,
     required this.body,
   });
 
-  factory MyModel.fromJson(Map<String, dynamic> json) =>
-      _$MyModelFromJson(json);
-  Map<String, dynamic> toJson() => _$MyModelToJson(this);
+  factory PostModel.fromJson(Map<String, dynamic> json) =>
+      _$PostModelFromJson(json);
+  Map<String, dynamic> toJson() => _$PostModelToJson(this);
 
   @override
   List<Object?> get props => [

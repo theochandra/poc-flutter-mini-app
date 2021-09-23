@@ -14,18 +14,18 @@ class _ApiClient implements ApiClient {
   String? baseUrl;
 
   @override
-  Future<List<MyModel>> getAll() async {
+  Future<List<PostModel>> getAll() async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _data = <String, dynamic>{};
     final _result = await _dio.fetch<List<dynamic>>(
-        _setStreamType<List<MyModel>>(
+        _setStreamType<List<PostModel>>(
             Options(method: 'GET', headers: <String, dynamic>{}, extra: _extra)
                 .compose(_dio.options, '/posts',
                     queryParameters: queryParameters, data: _data)
                 .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     var value = _result.data!
-        .map((dynamic i) => MyModel.fromJson(i as Map<String, dynamic>))
+        .map((dynamic i) => PostModel.fromJson(i as Map<String, dynamic>))
         .toList();
     return value;
   }

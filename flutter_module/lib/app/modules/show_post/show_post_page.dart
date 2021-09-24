@@ -26,7 +26,7 @@ class ShowPostPage extends GetView<ShowPostController> {
                     children: [
                       InfoWidget(
                         infoMessage:
-                            'This data is fetched from persistence database sqflite.',
+                            'This data is fetched from SQLite database.',
                       ),
                       Padding(
                         padding: const EdgeInsets.symmetric(horizontal: 12),

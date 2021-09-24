@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "771848557435",
+    "project_id": "poc-mini-app",
+    "storage_bucket": "poc-mini-app.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:771848557435:android:9c0a06b253034c4c4b63de",
+        "android_client_info": {
+          "package_name": "com.example.flutter_module"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "771848557435-1fa7et4e58reofj7d0fr7ie2bhq1h6da.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCuIyE_R5eLJtKKULT0Xp_Y250070Freoc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "771848557435-1fa7et4e58reofj7d0fr7ie2bhq1h6da.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

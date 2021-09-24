@@ -1,4 +1,5 @@
 package com.example.main_app
 
-class BaseApplication {
-}
+import android.app.Application
+
+class BaseApplication : Application() {}

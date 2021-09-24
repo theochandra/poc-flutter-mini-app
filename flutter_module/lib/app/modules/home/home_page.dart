@@ -40,10 +40,11 @@ class HomePage extends GetView<HomeController> {
                               SizedBox(width: 12),
                               GridButton(
                                 icon: Icon(
-                                  Icons.map,
+                                  Icons.location_on,
                                   color: Colors.white,
                                 ),
-                                callback: () {},
+                                callback: () =>
+                                    Get.toNamed(Routes.showLocation),
                               ),
                               SizedBox(width: 12),
                               GridButton(

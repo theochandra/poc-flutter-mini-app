@@ -26,6 +26,9 @@
             android:hardwareAccelerated="true"
             android:windowSoftInputMode="adjustResize"
             />
+
+        <meta-data android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyDz6IAAzJXAsG35w7KI-zzXfnGGG0IhTRw"/>
     </application>
 
 </manifest>

@@ -42,7 +42,7 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         val view = binding.root
         setContentView(view)
-        setUpFlutter()
+//        setUpFlutter()
 
         binding.btnOpenFlutterModule.setOnClickListener {
             startActivity(

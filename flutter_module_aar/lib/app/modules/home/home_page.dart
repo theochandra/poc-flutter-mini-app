@@ -14,10 +14,6 @@ class HomePage extends GetView<HomeController> {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Home Page'),
-        leading: Icon(
-          Icons.close,
-          color: Colors.white,
-        ),
       ),
       body: Container(
         child: GetX<HomeController>(

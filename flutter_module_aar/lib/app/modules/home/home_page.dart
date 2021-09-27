@@ -4,7 +4,6 @@ import 'package:flutter_module_aar/app/global_widgets/item_view.dart';
 import 'package:flutter_module_aar/app/global_widgets/loading_widget.dart';
 import 'package:flutter_module_aar/app/modules/home/home_controller.dart';
 import 'package:flutter_module_aar/app/routes/app_pages.dart';
-import 'package:flutter_module_aar/app/services/method_channel_service.dart';
 import 'package:get/get.dart';
 
 class HomePage extends GetView<HomeController> {
@@ -12,75 +11,71 @@ class HomePage extends GetView<HomeController> {
 
   @override
   Widget build(BuildContext context) {
-    return WillPopScope(
-      onWillPop: MethodChannelService.closeFlutterModule(),
-      child: Scaffold(
-        appBar: AppBar(
-          title: const Text('Home Page'),
-          leading: Icon(
-            Icons.close,
-            color: Colors.white,
-          ),
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Home Page'),
+        leading: Icon(
+          Icons.close,
+          color: Colors.white,
         ),
-        body: Container(
-          child: GetX<HomeController>(
-            initState: (state) {
-              Get.find<HomeController>().getAll();
-            },
-            builder: (_) {
-              return _.postList.length < 1
-                  ? LoadingWidget()
-                  : SingleChildScrollView(
-                      child: Column(
-                        children: [
-                          Padding(
-                            padding: const EdgeInsets.fromLTRB(12, 8, 12, 0),
-                            child: Row(
-                              children: [
-                                GridButton(
-                                  icon: Icon(
-                                    Icons.camera_alt,
-                                    color: Colors.white,
-                                  ),
-                                  callback: () =>
-                                      Get.toNamed(Routes.cameraPage),
+      ),
+      body: Container(
+        child: GetX<HomeController>(
+          initState: (state) {
+            Get.find<HomeController>().getAll();
+          },
+          builder: (_) {
+            return _.postList.length < 1
+                ? LoadingWidget()
+                : SingleChildScrollView(
+                    child: Column(
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.fromLTRB(12, 8, 12, 0),
+                          child: Row(
+                            children: [
+                              GridButton(
+                                icon: Icon(
+                                  Icons.camera_alt,
+                                  color: Colors.white,
                                 ),
-                                SizedBox(width: 12),
-                                GridButton(
-                                  icon: Icon(
-                                    Icons.location_on,
-                                    color: Colors.white,
-                                  ),
-                                  callback: () =>
-                                      Get.toNamed(Routes.showLocation),
+                                callback: () => Get.toNamed(Routes.cameraPage),
+                              ),
+                              SizedBox(width: 12),
+                              GridButton(
+                                icon: Icon(
+                                  Icons.location_on,
+                                  color: Colors.white,
                                 ),
-                                SizedBox(width: 12),
-                                GridButton(
-                                  icon: Icon(
-                                    Icons.book,
-                                    color: Colors.white,
-                                  ),
-                                  callback: () => Get.toNamed(Routes.showPost),
+                                callback: () =>
+                                    Get.toNamed(Routes.showLocation),
+                              ),
+                              SizedBox(width: 12),
+                              GridButton(
+                                icon: Icon(
+                                  Icons.book,
+                                  color: Colors.white,
                                 ),
-                              ],
-                            ),
+                                callback: () => Get.toNamed(Routes.showPost),
+                              ),
+                            ],
                           ),
-                          Padding(
-                            padding: const EdgeInsets.symmetric(horizontal: 12),
-                            child: Divider(),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.symmetric(horizontal: 12),
+                          child: Divider(),
+                        ),
+                        ..._.postList.map(
+                          (model) => ItemView(
+                            title: model.title,
+                            subtitle: model.body,
+                            onTap: () {},
                           ),
-                          ..._.postList.map(
-                            (model) => ItemView(
-                              title: model.title,
-                              subtitle: model.body,
-                              onTap: () {},
-                            ),
-                          ),
-                        ],
-                      ),
-                    );
-            },
-          ),
+                        ),
+                      ],
+                    ),
+                  );
+          },
         ),
       ),
     );

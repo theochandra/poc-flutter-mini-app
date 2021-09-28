@@ -47,6 +47,9 @@ class MainActivity : AppCompatActivity() {
         binding.btnOpenFlutterModule.setOnClickListener {
             startActivity(
                 FlutterActivity.createDefaultIntent(this)
+//                FlutterActivity
+//                    .withCachedEngine(FLUTTER_ENGINE_ID)
+//                    .build(this)
             )
         }
     }
